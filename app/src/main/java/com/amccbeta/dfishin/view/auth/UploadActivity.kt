@@ -172,6 +172,10 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
         user.username = sUsername
         user.password = sPassword
         user.email = sEmail
+<<<<<<< HEAD
+=======
+        user.telepon = sTelepon
+>>>>>>> auth-fragment
         user.url = sUrl
 
         checkingUsername(sUsername, user)
