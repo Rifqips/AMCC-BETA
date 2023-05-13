@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.amccbeta.dfishin.R
+import com.amccbeta.dfishin.data.storage.PreferencesClass
 import com.amccbeta.dfishin.databinding.ActivityFishTypeBinding
 import com.amccbeta.dfishin.view.dahsboard.DashboardActivity
 import com.amccbeta.dfishin.view.fishtype.fragment.FishTypeFragment
 import com.amccbeta.dfishin.view.fishtype.fragment.NotificationFragment
 import com.amccbeta.dfishin.view.fishtype.fragment.ProfileFragment
 import com.amccbeta.dfishin.view.fishtype.fragment.WheaterFragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 class FishTypeActivity : AppCompatActivity() {
 
@@ -21,13 +24,21 @@ class FishTypeActivity : AppCompatActivity() {
     private val fragmentWheater = WheaterFragment()
     private val fragmentNotification = NotificationFragment()
 
+    private lateinit var preferences: PreferencesClass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFishTypeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        preferences = PreferencesClass(this)
         binding.bottomNavigationView.background = null
         switchFragment(fragmentHome)
+
+        Glide.with(this)
+            .load(preferences.getValue("url"))
+            .apply(RequestOptions.circleCropTransform())
+            .into(binding.ivUser)
+
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menuHome -> switchFragment(fragmentHome)
