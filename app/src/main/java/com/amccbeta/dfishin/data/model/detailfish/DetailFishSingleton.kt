@@ -23,7 +23,7 @@ object DetailFishSingleton {
 
         )
 
-    val listLocation: ArrayList<DetailFishModel>
+    val listDetail: ArrayList<DetailFishModel>
         get() {
             val list = arrayListOf<DetailFishModel>()
             for (position in title.indices){

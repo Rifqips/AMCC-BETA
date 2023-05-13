@@ -9,7 +9,7 @@ import com.amccbeta.dfishin.data.storage.PreferencesClass
 import com.amccbeta.dfishin.databinding.ActivityFishTypeBinding
 import com.amccbeta.dfishin.view.dahsboard.DashboardActivity
 import com.amccbeta.dfishin.view.fishtype.fragment.FishTypeFragment
-import com.amccbeta.dfishin.view.fishtype.fragment.NotificationFragment
+import com.amccbeta.dfishin.view.fishtype.fragment.DistribusiFragment
 import com.amccbeta.dfishin.view.fishtype.fragment.ProfileFragment
 import com.amccbeta.dfishin.view.fishtype.fragment.WheaterFragment
 import com.bumptech.glide.Glide
@@ -22,7 +22,7 @@ class FishTypeActivity : AppCompatActivity() {
     private val fragmentProfile = ProfileFragment()
     private val fragmentHome = FishTypeFragment()
     private val fragmentWheater = WheaterFragment()
-    private val fragmentNotification = NotificationFragment()
+    private val fragmentNotification = DistribusiFragment()
 
     private lateinit var preferences: PreferencesClass
 

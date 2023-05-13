@@ -9,6 +9,8 @@ import com.amccbeta.dfishin.data.model.article.ArticleSingleton
 import com.amccbeta.dfishin.data.storage.PreferencesClass
 import com.amccbeta.dfishin.databinding.ActivityDashboardBinding
 import com.amccbeta.dfishin.view.adapter.home.ArticleAdapter
+import com.amccbeta.dfishin.view.buyfeed.BuyFeedActivity
+import com.amccbeta.dfishin.view.distribusi.DistribusiActivity
 import com.amccbeta.dfishin.view.fishtype.FishTypeActivity
 import com.amccbeta.dfishin.view.fishtype.fragment.FishTypeFragment
 import com.bumptech.glide.Glide
@@ -39,6 +41,14 @@ class DashboardActivity : AppCompatActivity() {
 
         binding.cvFirstType.setOnClickListener {
             startActivity(Intent(this, FishTypeActivity::class.java))
+        }
+
+        binding.cvDistribution.setOnClickListener{
+            startActivity(Intent(this, DistribusiActivity::class.java))
+        }
+
+        binding.cvBuyFeed.setOnClickListener {
+            startActivity(Intent(this, BuyFeedActivity::class.java))
         }
 
     }

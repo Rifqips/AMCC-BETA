@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.amccbeta.dfishin.R
-import com.amccbeta.dfishin.databinding.FragmentFishTypeBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.amccbeta.dfishin.data.model.article.ArticleSingleton
 import com.amccbeta.dfishin.databinding.FragmentNotificationBinding
+import com.amccbeta.dfishin.view.adapter.home.ArticleAdapter
 
-class NotificationFragment : Fragment() {
+class DistribusiFragment : Fragment() {
 
     private lateinit var binding: FragmentNotificationBinding
 
@@ -25,4 +26,6 @@ class NotificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
+
 }
