@@ -50,6 +50,7 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
     lateinit var sUsername : String
     lateinit var sPassword : String
     lateinit var sEmail : String
+    lateinit var sTelepon : String
     lateinit var sUrl : String
 
 
@@ -172,10 +173,7 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
         user.username = sUsername
         user.password = sPassword
         user.email = sEmail
-<<<<<<< HEAD
-=======
         user.telepon = sTelepon
->>>>>>> auth-fragment
         user.url = sUrl
 
         checkingUsername(sUsername, user)
