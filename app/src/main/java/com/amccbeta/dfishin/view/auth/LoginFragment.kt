@@ -71,19 +71,6 @@ class LoginFragment : Fragment() {
             }
         }
 
-        binding.btnRegister.setOnClickListener {
-<<<<<<< HEAD
-            startActivity(Intent(requireActivity(), UploadActivity::class.java))
-=======
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.container, RegisterFragment(), RegisterFragment::class.java.simpleName)
-                /* shared element transition to main activity */
-                addSharedElement(binding.edUsername, "email")
-                addSharedElement(binding.edPassword, "password")
-                commit()
-            }
->>>>>>> auth-fragment
-        }
     }
 
     private fun pushLogin(iUsername: String, iPassword: String) {
