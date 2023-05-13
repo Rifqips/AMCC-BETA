@@ -10,6 +10,7 @@ import com.amccbeta.dfishin.databinding.ActivitySplashBinding
 import com.amccbeta.dfishin.view.auth.AuthActivity
 import com.amccbeta.dfishin.view.dahsboard.DashboardActivity
 import com.amccbeta.dfishin.view.onboarding.OnboardingActivity
+import com.google.android.gms.common.data.DataHolder
 
 class SplashActivity : AppCompatActivity() {
 
@@ -26,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
                 val intentLogin = Intent(this, AuthActivity::class.java)
                 startActivity(intentLogin)
             } else {
-                val intent = Intent(this,AuthActivity::class.java)
+                val intent = Intent(this,DashboardActivity::class.java)
                 intent.putExtra("username", preferences.sharedPref.getString("username",""))
                 startActivity(intent)
             }

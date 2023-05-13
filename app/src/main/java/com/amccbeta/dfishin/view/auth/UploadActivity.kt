@@ -33,10 +33,19 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.util.*
 
-class UploadActivity : AppCompatActivity(),PermissionListener {
+class UploadActivity : AppCompatActivity(), PermissionListener {
 
     private lateinit var binding: ActivityUploadBinding
 
+    lateinit var sUsername : String
+    lateinit var sPassword : String
+    lateinit var sEmail : String
+    lateinit var sUrl : String
+    lateinit var sTelepon : String
+
+    private var imageMultiPart: MultipartBody.Part? = null
+    private var imageFile: File? = null
+    private var imageUri: Uri? = Uri.EMPTY
 
     var statusAdd: Boolean = false
     lateinit var filePath: Uri
@@ -45,19 +54,6 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
     private lateinit var mFirebaseInstance : FirebaseDatabase
     lateinit var storageReference : StorageReference
     lateinit var preferences : PreferencesClass
-
-
-    lateinit var sUsername : String
-    lateinit var sPassword : String
-    lateinit var sEmail : String
-    lateinit var sTelepon : String
-    lateinit var sUrl : String
-
-
-    private var imageMultiPart: MultipartBody.Part? = null
-    private var imageFile: File? = null
-    private var imageUri: Uri? = Uri.EMPTY
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,24 +66,28 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
         mFirebaseInstance = FirebaseDatabase.getInstance()
         mFirebaseDatabase = mFirebaseInstance.getReference("user")
 
-//        binding.imageView4.setOnClickListener {
-//            startActivity(Intent(this@UploadActivity, AuthActivity::class.java))
-//        }
+        binding.tvDummyname.text = preferences.getValue("username")
+        binding.tvDummytelpon.text = preferences.getValue("telepon")
+        binding.tvDummyemail.text = preferences.getValue("email")
+        binding.tvDummypassword.text = preferences.getValue("password")
 
+        sUsername = binding.tvDummyname.text.toString()
+        sPassword = binding.tvDummypassword.text.toString()
+        sEmail = binding.tvDummyemail.text.toString()
+        sTelepon = binding.tvDummytelpon.text.toString()
 
+        sUrl = binding.imageView.toString()
+
+        binding.ivAdd.setOnClickListener {
+            openGallery()
+        }
 
         binding.btnAction.setOnClickListener{
-
-            sUsername = binding.edName.text.toString()
-            sPassword = binding.edPassword.text.toString()
-            sEmail = binding.edEmail.text.toString()
-            sUrl = binding.ivProfile.toString()
 
             // membuat proggres dialog
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
-
             // dengan folder yang ada di firebasenya
             val ref = storageReference.child("images/"+ UUID.randomUUID().toString())
             ref.putFile(filePath) // kasih filenya dengan uri tadi / filepath
@@ -114,30 +114,12 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
                         taskSnapshot -> val progress = 100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
                     progressDialog.setMessage("Upload "+progress.toInt()+" %")
                 }
-            if ( binding.edName.equals("")){
-                binding.edName.error = "Silakan isi username Anda"
-                binding.edName.requestFocus()
-            } else if (binding.edPassword.equals("")){
-                binding.edPassword.error = "Silakan isi password Anda"
-                binding.edPassword.requestFocus()
-            }else if (binding.edEmail.equals("")){
-                binding.edEmail.error = "Silakan isi nama Anda"
-                binding.edEmail.requestFocus()
-            } else {
-                val statusUsername = binding.edName.text?.indexOf(".")
-                if (statusUsername!! >=0) {
-                    binding.edName.error = "Silahkan tulis Username Anda tanpa ."
-                    binding.edName.requestFocus()
-                } else {
-                    saveUsername(sUsername, sPassword, sEmail, sUrl)
-                }
-            }
+
+            saveUsername(sUsername, sPassword, sEmail, sUrl)
 
         }
 
-        binding.ivAdd.setOnClickListener {
-            openGallery()
-        }
+
     }
 
     fun openGallery(){
@@ -152,12 +134,12 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
 
                 val fileNameimg = "${System.currentTimeMillis()}.png"
 
-                val imageView = binding.ivProfile
+                val imageView = binding.imageView
                 imageView.setImageURI(it)
 
                 Toast.makeText(this, "$imageUri", Toast.LENGTH_SHORT).show()
 
-                val tempFile = File.createTempFile("assignment-1", fileNameimg, null)
+                val tempFile = File.createTempFile("hackfest-1", fileNameimg, null)
                 imageFile = tempFile
                 val inputstream = contentResolver.openInputStream(uri)
                 tempFile.outputStream().use    { result ->
@@ -167,7 +149,6 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
                 imageMultiPart = MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
             }
         }
-
     private fun saveUsername(sUsername: String, sPassword: String,  sEmail: String, sUrl: String) {
         val user = User()
         user.username = sUsername
@@ -178,7 +159,6 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
 
         checkingUsername(sUsername, user)
     }
-
     private fun checkingUsername(sUsername: String, data: User) {
         mFirebaseDatabase.child(sUsername).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -196,22 +176,17 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
 
         })
     }
-
-    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+    override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
         openGallery()
     }
 
-    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+    override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
         Toast.makeText(this, "Anda tidak bisa menambahkan photo profile", Toast.LENGTH_LONG).show()
     }
 
-    override fun onPermissionRationaleShouldBeShown(
-        permission: com.karumi.dexter.listener.PermissionRequest?,
-        token: PermissionToken?
-    ) {
+    override fun onPermissionRationaleShouldBeShown(p0: PermissionRequest?, p1: PermissionToken?) {
         TODO("Not yet implemented")
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -225,7 +200,7 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
                 Glide.with(this)
                     .load(filePath)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(binding.ivProfile)
+                    .into(binding.imageView)
 
                 //            binding.ivAdd.setImageResource(R.drawableb)
                 binding.btnAction.isGone = false
@@ -239,6 +214,4 @@ class UploadActivity : AppCompatActivity(),PermissionListener {
             }
         }
     }
-
-
 }

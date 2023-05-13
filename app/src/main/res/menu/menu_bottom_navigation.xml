@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/menuWheater"
+        android:icon="@drawable/ic_wheater"
+        android:title="Wheater"/>
+
+
+    <item
+        android:id="@+id/navigation_blank"
+        android:enabled="false"
+        android:title=""
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menuNotification"
+        android:icon="@drawable/ic_notif"
+        android:title="@string/notification"/>
+
+    <item
+        android:id="@+id/menuPerson"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profile"/>
+
+</menu>

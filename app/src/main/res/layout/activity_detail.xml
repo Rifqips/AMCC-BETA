@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color"
+    tools:context=".view.detail.DetailActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="48dp" />
+    
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:src="@drawable/iv_back"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivDetail"
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_launcher_background"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="200dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constDetail"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/custom_detail_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2">
+
+        <TextView
+            android:id="@+id/tvTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Budidaya Ikan Lele yang baik dan benar"
+            style="@style/firsttext"
+            android:textSize="25sp"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintStart_toStartOf="@+id/constDetail"
+            app:layout_constraintTop_toTopOf="@+id/constDetail"
+            android:layout_marginHorizontal="20dp"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 days ago"
+            style="@style/secondtext"
+            android:textSize="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/constDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tvTittle"
+            android:layout_marginStart="20dp"
+            tools:ignore="SpUsage" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ikan lele memiliki peluang pasar yang luas, mulai dari tukang sayur, pedagang di pasar, pedagang lele pinggir jalan, hingga restoran mewah. Ikan lele lebih mudah dibudidayakan dibanding ikan lainnya karena bisa tahan dikembangbiakkan dalam kolam kecil dengan modal yang tidak besar. Selain itu, harga ikan lele juga cenderung stabil."
+            style="@style/secondtext"
+            android:textSize="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintStart_toStartOf="@+id/constDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate"
+            android:layout_marginStart="20dp"
+            tools:ignore="SpUsage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,155 +8,82 @@
     android:background="@color/primary_color"
     tools:context=".view.auth.UploadActivity">
 
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/addpicture"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/container"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvDummyname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="sdvdsv"
+            android:textColor="@color/secondary_color"/>
+
+        <TextView
+            android:id="@+id/tvDummytelpon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/secondary_color"/>
+
+        <TextView
+            android:id="@+id/tvDummyemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/secondary_color"/>
+
+        <TextView
+            android:id="@+id/tvDummypassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/secondary_color"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/firsttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:textSize="20sp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/addpicture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
     <ImageView
         android:id="@+id/ivAdd"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginStart="100dp"
         android:background="@drawable/shape_eclipse"
-        app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
-        app:layout_constraintEnd_toEndOf="@+id/ivProfile"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:srcCompat="@drawable/ic_btn_upload" />
 
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline1"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/label_greet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            style="@style/firsttext"
-            android:text="Set up your profile"
-            android:textColor="@color/secondary_color"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="200dp" />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="240dp" />
-
-    <TextView
-        android:id="@+id/label_auth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:visibility="gone"
-        android:textStyle="bold"
-        android:transitionName="auth"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="Your Username"
-        android:textColorHint="@color/third_color"
-        android:textColor="@color/secondary_color"
-        android:fontFamily="@font/poppins_medium"
-        android:inputType="textEmailAddress"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_auth" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_telepon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="Your Telepon"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/third_color"
-        android:textColor="@color/secondary_color"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        android:transitionName="email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_name" />
-
-    <com.amccbeta.dfishin.view.auth.customview.EditTextEmail
-        android:id="@+id/ed_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="15dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="Your Email"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/third_color"
-        android:textColor="@color/secondary_color"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_telepon" />
-
-    <com.amccbeta.dfishin.view.auth.customview.EditTextPassword
-        android:id="@+id/ed_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="15dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/custom_form_input"
-        android:hint="Your Password"
-        android:textColorHint="@color/third_color"
-        android:textColor="@color/secondary_color"
-        android:fontFamily="@font/poppins_medium"
-        android:inputType="textPassword"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="15dp"
-        android:transitionName="password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
 
     <Button
         android:id="@+id/btn_action"
@@ -173,41 +100,6 @@
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
-
-    <TextView
-        android:id="@+id/label_or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        style="@style/firsttext"
-        android:textSize="16sp"
-        android:layout_marginVertical="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_action"
-        android:textColor="@color/third_color" />
-
-    <TextView
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/firsttext"
-        android:text="Login"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_or"
-        android:textStyle="bold" />
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

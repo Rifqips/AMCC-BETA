@@ -66,11 +66,18 @@ class LoginFragment : Fragment() {
                 } else {
                     pushLogin(binding.edUsername.text.toString(), binding.edPassword.text.toString())
                 }
-
-
             }
         }
 
+        binding.btnRegister.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.container, RegisterFragment(), RegisterFragment::class.java.simpleName)
+                /* shared element transition to main activity */
+                addSharedElement(binding.edUsername, "email")
+                addSharedElement(binding.edPassword, "password")
+                commit()
+            }
+        }
     }
 
     private fun pushLogin(iUsername: String, iPassword: String) {
