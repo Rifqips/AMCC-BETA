@@ -2,16 +2,17 @@
     <string name="app_name">DFishIn</string>
 
     <string name="onboarding_slide1_title">Create an account</string>
-    <string name="onboarding_slide1_subtitle">Lorem ipsum is placeholder text </string>
-    <string name="onboarding_slide1_desc">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing.</string>
+    <string name="onboarding_slide1_subtitle">Easy To Monitored Fish </string>
+    <string name="onboarding_slide1_desc">Monitor your fish with us and let your self get an amazing experience.</string>
 
     <string name="onboarding_slide2_title">Login to your account</string>
-    <string name="onboarding_slide2_subtitle">Lorem ipsum is placeholder text </string>
-    <string name="onboarding_slide2_desc">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing.</string>
+    <string name="onboarding_slide2_subtitle">Distributed your fish here </string>
+    <string name="onboarding_slide2_desc">you can see your fish here and increase your market segmentation.</string>
 
     <string name="onboarding_slide3_title">Login to your account</string>
-    <string name="onboarding_slide3_subtitle">Lorem ipsum is placeholder text </string>
-    <string name="onboarding_slide3_desc">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing.</string>
+    <string name="onboarding_slide3_subtitle">Many Promo for you </string>
+    <string name="onboarding_slide3_desc">There are many promo with subcribe join with us and.</string>
+
     <string name="next">Next</string>
     <string name="skip">Skip</string>
 

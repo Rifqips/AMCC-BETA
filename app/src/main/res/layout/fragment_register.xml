@@ -15,17 +15,8 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/addpicture"/>
+        app:layout_constraintTop_toBottomOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/label_greet"
@@ -54,16 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="250dp" />
-
-    <ImageView
-        android:id="@+id/ivAdd"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/shape_eclipse"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline1"
-        app:srcCompat="@drawable/ic_btn_upload" />
+        app:layout_constraintGuide_begin="240dp" />
 
     <TextView
         android:id="@+id/label_auth"
@@ -88,8 +70,9 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_form_input"
         android:hint="Your Username"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
+        android:textColorHint="@color/third_color"
+        android:textColor="@color/secondary_color"
+        android:fontFamily="@font/poppins_medium"
         android:inputType="textEmailAddress"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
@@ -98,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/label_auth" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/ed_email"
+        android:id="@+id/ed_telepon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -106,8 +89,9 @@
         android:background="@drawable/custom_form_input"
         android:hint="Your Telepon"
         android:inputType="textEmailAddress"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
+        android:textColorHint="@color/third_color"
+        android:textColor="@color/secondary_color"
+        android:fontFamily="@font/poppins_medium"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
         android:transitionName="email"
@@ -116,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_name" />
 
     <com.amccbeta.dfishin.view.auth.customview.EditTextEmail
-        android:id="@+id/ed_password"
+        android:id="@+id/ed_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -124,17 +108,18 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/custom_form_input"
         android:hint="Your Email"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/third_color"
+        android:textColor="@color/secondary_color"
+        android:fontFamily="@font/poppins_medium"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
-        android:transitionName="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_telepon" />
 
     <com.amccbeta.dfishin.view.auth.customview.EditTextPassword
-        android:id="@+id/ed_confirm_password"
+        android:id="@+id/ed_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -142,15 +127,16 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/custom_form_input"
         android:hint="Your Password"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
+        android:textColorHint="@color/third_color"
+        android:textColor="@color/secondary_color"
+        android:fontFamily="@font/poppins_medium"
         android:inputType="textPassword"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
         android:transitionName="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
 
     <Button
         android:id="@+id/btn_action"
@@ -167,19 +153,7 @@
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_confirm_password" />
-
-    <LinearLayout
-        android:id="@+id/containerMisc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:transitionName="misc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_action">
+        app:layout_constraintTop_toBottomOf="@+id/ed_password" />
 
         <TextView
             android:id="@+id/label_or"
@@ -188,19 +162,23 @@
             android:text="or"
             style="@style/firsttext"
             android:textSize="16sp"
+            android:layout_marginVertical="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_action"
             android:textColor="@color/third_color" />
 
         <TextView
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
             style="@style/firsttext"
             android:text="Login"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_or"
             android:textStyle="bold" />
-
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/loading"
