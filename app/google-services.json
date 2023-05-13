@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "404388630261",
-    "firebase_url": "https://capstone-bangkit-b0a59-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "capstone-bangkit-b0a59",
-    "storage_bucket": "capstone-bangkit-b0a59.appspot.com"
+    "project_number": "874806131319",
+    "firebase_url": "https://fishin-eb773-default-rtdb.firebaseio.com",
+    "project_id": "fishin-eb773",
+    "storage_bucket": "fishin-eb773.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:404388630261:android:5790a20659c22b5e96ffbc",
+        "mobilesdk_app_id": "1:874806131319:android:7383caf041602a9bc72472",
         "android_client_info": {
-          "package_name": "com.capstonebangkit.itscoffe"
+          "package_name": "com.amccbeta.dfishin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "404388630261-qs5p8roh3b047ujr50nsqoeh5us1qfgt.apps.googleusercontent.com",
+          "client_id": "874806131319-8vn3t3771514imlhk80nt2di41ov4s39.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDs7M26BOkYoQda6pLg-HeCUITXnF0IoDA"
+          "current_key": "AIzaSyCJcrkyV74VNamOFlVzAbD0nM8OPPLLhJw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "404388630261-qs5p8roh3b047ujr50nsqoeh5us1qfgt.apps.googleusercontent.com",
+              "client_id": "874806131319-8vn3t3771514imlhk80nt2di41ov4s39.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

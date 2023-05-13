@@ -72,14 +72,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnRegister.setOnClickListener {
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.container, RegisterFragment(), RegisterFragment::class.java.simpleName)
-                /* shared element transition to main activity */
-                addSharedElement(binding.edEmail, "email")
-                addSharedElement(binding.edPassword, "password")
-                addSharedElement(binding.containerMisc, "misc")
-                commit()
-            }
+            startActivity(Intent(requireActivity(), UploadActivity::class.java))
         }
     }
 
