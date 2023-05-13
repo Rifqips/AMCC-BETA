@@ -3,30 +3,33 @@ package com.amccbeta.dfishin.view.fishtype.fragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
-import android.util.Range
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.util.rangeTo
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.amccbeta.dfishin.R
 import com.amccbeta.dfishin.data.model.wheater.WeatherResponse
 import com.amccbeta.dfishin.data.network.WeatherService
 import com.amccbeta.dfishin.data.utils.Constanta
-import com.amccbeta.dfishin.databinding.FragmentProfileBinding
 import com.amccbeta.dfishin.databinding.FragmentWheaterBinding
-import com.google.android.gms.common.internal.Objects.ToStringHelper
 import com.google.android.gms.location.*
 import com.google.gson.Gson
 import com.karumi.dexter.Dexter
@@ -51,6 +54,11 @@ class WheaterFragment : Fragment() {
     private var mProgressDialog: Dialog? = null
     private lateinit var mSharedPreferences: SharedPreferences
 
+    // declaring variables
+    private val CHANNEL_ID = "chanel_id_example_01"
+    private val notificationId = 101
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,6 +76,7 @@ class WheaterFragment : Fragment() {
         mSharedPreferences = requireActivity().getSharedPreferences(Constanta.PREFERENCE_NAME, Context.MODE_PRIVATE)
 
         setupUI()
+
 
         if (!isLocationEnabled()) {
             Toast.makeText(
@@ -108,21 +117,59 @@ class WheaterFragment : Fragment() {
 
         }
 
-        binding.cvWheater.setOnClickListener {
-
-            var temp = binding.tvTemp.text.toString().toFloat()
-
-            if (temp <= 22){
-                binding.textView.text = "warning"
-            } else if (temp >= 30){
-                binding.textView.text = "warning"
-            } else if (temp >= 26 || temp <= 30 ){
-                binding.textView.text = "pertahankan"
-            }
+        createNotificationChannel()
+        sendNotification()
 
     }
 
+    private fun createNotificationChannel(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Notification Title"
+            val descriptionText = "Notification Description"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel(CHANNEL_ID,name,importance).apply {
+                description= descriptionText
+            }
+            val notificationManager: NotificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 
+    private fun sendNotification(){
+
+        var temp = binding.tvTemp.text.toString().toFloat()
+
+        if (temp <= 22){
+            binding.textView.text = "warning"
+        } else if (temp >= 30){
+            binding.textView.text = "warning"
+        } else if (temp >= 26 || temp <= 30 ){
+            binding.textView.text = "pertahankan"
+        }
+
+        val builder = NotificationCompat.Builder(requireActivity(), CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_logo)
+            .setContentTitle("Temperatur saat ini adalah $temp")
+            .setContentText(binding.textView.text)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(requireActivity())){
+            if (ActivityCompat.checkSelfPermission(
+                    requireActivity(),
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return
+            }
+            notify(notificationId, builder.build())
+        }
     }
 
     private fun getLocationWeatherDetails(latitude: Double, longitude: Double) {

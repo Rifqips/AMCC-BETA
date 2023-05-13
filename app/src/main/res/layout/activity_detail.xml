@@ -85,11 +85,11 @@
             android:text="Ikan lele memiliki peluang pasar yang luas, mulai dari tukang sayur, pedagang di pasar, pedagang lele pinggir jalan, hingga restoran mewah. Ikan lele lebih mudah dibudidayakan dibanding ikan lainnya karena bisa tahan dikembangbiakkan dalam kolam kecil dengan modal yang tidak besar. Selain itu, harga ikan lele juga cenderung stabil."
             style="@style/secondtext"
             android:textSize="15dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginVertical="16dp"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/constDetail"
             app:layout_constraintStart_toStartOf="@+id/constDetail"
             app:layout_constraintTop_toBottomOf="@+id/tvDate"
-            android:layout_marginStart="20dp"
             tools:ignore="SpUsage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
