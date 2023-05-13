@@ -45,18 +45,6 @@ class RegisterFragment : Fragment() {
 
     lateinit var preferences : PreferencesClass
 
-    lateinit var sUsername : String
-    lateinit var sPassword : String
-    lateinit var sEmail : String
-    lateinit var sUrl : String
-    lateinit var sTelepon : String
-
-
-    private var imageMultiPart: MultipartBody.Part? = null
-    private var imageFile: File? = null
-    private var imageUri: Uri? = Uri.EMPTY
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val animation = TransitionInflater.from(requireContext())
@@ -83,12 +71,13 @@ class RegisterFragment : Fragment() {
             switchLogin()
         }
 
-        binding.btnAction.setOnClickListener {
 
-            sUsername = binding.edName.text.toString()
-            sTelepon = binding.edTelepon.text.toString()
-            sEmail = binding.edEmail.text.toString()
-            sPassword = binding.edPassword.text.toString()
+
+        binding.btnAction.setOnClickListener {
+                preferences.setValue("username", binding.edName.text.toString())
+                preferences.setValue("telepon", binding.edTelepon.text.toString())
+                preferences.setValue("email", binding.edEmail.text.toString())
+                preferences.setValue("password", binding.edPassword.text.toString())
 
             if ( binding.edName.equals("")){
                 binding.edName.error = "Silakan isi username Anda"
@@ -107,10 +96,10 @@ class RegisterFragment : Fragment() {
                 if (statusUsername >=0) {
                     binding.edName.error = "Silahkan tulis Username Anda tanpa ."
                     binding.edName.requestFocus()
-                } else {
-                    saveUsername(sUsername, sPassword, sEmail, sTelepon, sUrl)
                 }
             }
+
+            startActivity(Intent(requireActivity(),UploadActivity::class.java ))
 
         }
 
@@ -124,6 +113,7 @@ class RegisterFragment : Fragment() {
         user.email = sEmail
         user.telepon = sTelepon
         user.url = sUrl
+
     }
 
 

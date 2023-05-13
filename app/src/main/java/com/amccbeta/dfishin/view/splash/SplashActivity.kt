@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import com.amccbeta.dfishin.data.storage.PreferencesClass
 import com.amccbeta.dfishin.databinding.ActivitySplashBinding
+import com.amccbeta.dfishin.view.auth.AuthActivity
 import com.amccbeta.dfishin.view.dahsboard.DashboardActivity
 import com.amccbeta.dfishin.view.onboarding.OnboardingActivity
 
@@ -22,10 +23,10 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!).postDelayed({
             if (preferences.sharedPref.getString("username","") == "" && preferences.sharedPref.getString("password", "") == "") {
-                val intentLogin = Intent(this, OnboardingActivity::class.java)
+                val intentLogin = Intent(this, AuthActivity::class.java)
                 startActivity(intentLogin)
             } else {
-                val intent = Intent(this,DashboardActivity::class.java)
+                val intent = Intent(this,AuthActivity::class.java)
                 intent.putExtra("username", preferences.sharedPref.getString("username",""))
                 startActivity(intent)
             }

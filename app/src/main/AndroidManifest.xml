@@ -22,7 +22,7 @@
         android:theme="@style/Theme.DFishIn"
         tools:targetApi="31">
         <activity
-            android:name=".UploadActivity"
+            android:name=".view.auth.UploadActivity"
             android:exported="false" />
         <activity
             android:name=".view.auth.AuthActivity"
