@@ -151,10 +151,10 @@ class UploadActivity : AppCompatActivity(), PermissionListener {
         }
     private fun saveUsername(sUsername: String, sPassword: String,  sEmail: String, sUrl: String) {
         val user = User()
-        user.username = binding.tvDummyname.text.toString()
-        user.password = binding.tvDummypassword.text.toString()
-        user.email = binding.tvDummyemail.text.toString()
-        user.telepon = binding.tvDummytelpon.text.toString()
+        user.username = sUsername
+        user.password = sPassword
+        user.email = sEmail
+        user.telepon = sTelepon
         user.url = sUrl
 
         checkingUsername(sUsername, user)

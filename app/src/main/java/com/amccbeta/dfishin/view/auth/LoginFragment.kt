@@ -50,21 +50,21 @@ class LoginFragment : Fragment() {
         preference = PreferencesClass(requireActivity())
 
         binding.btnAction.setOnClickListener{
-            preference.setValue("username",binding.edEmail.text.toString())
-            if ( binding.edEmail.equals("")){
-                binding.edEmail.error = "Silakan tulis username Anda"
-                binding.edEmail.requestFocus() // agar cursor fokus ke username
+            preference.setValue("username",binding.edUsername.text.toString())
+            if ( binding.edUsername.equals("")){
+                binding.edUsername.error = "Silakan tulis username Anda"
+                binding.edUsername.requestFocus() // agar cursor fokus ke username
             }else if ( binding.edPassword.equals("")){
                 binding.edPassword.error = "Silakan tulis password Anda"
                 binding.edPassword.requestFocus() // agar cursor fokus ke username
             } else{
 
-                var statusUsername = binding.edEmail.text?.indexOf(".")
+                var statusUsername = binding.edUsername.text?.indexOf(".")
                 if (statusUsername!! >=0) {
-                    binding.edEmail.error = "Silahkan tulis Email Anda tanpa ."
-                    binding.edEmail.requestFocus()
+                    binding.edUsername.error = "Silahkan tulis Email Anda tanpa ."
+                    binding.edUsername.requestFocus()
                 } else {
-                    pushLogin(binding.edEmail.text.toString(), binding.edPassword.text.toString())
+                    pushLogin(binding.edUsername.text.toString(), binding.edPassword.text.toString())
                 }
 
 
@@ -75,9 +75,8 @@ class LoginFragment : Fragment() {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.container, RegisterFragment(), RegisterFragment::class.java.simpleName)
                 /* shared element transition to main activity */
-                addSharedElement(binding.edEmail, "email")
+                addSharedElement(binding.edUsername, "email")
                 addSharedElement(binding.edPassword, "password")
-                addSharedElement(binding.containerMisc, "misc")
                 commit()
             }
         }

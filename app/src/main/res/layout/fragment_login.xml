@@ -37,14 +37,14 @@
 
     </RelativeLayout>
 
-    <com.amccbeta.dfishin.view.auth.customview.EditTextEmail
-        android:id="@+id/ed_email"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/ed_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_form_input"
-        android:hint="Your Email"
+        android:hint="Username"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="textEmailAddress"
@@ -71,7 +71,7 @@
         android:transitionName="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_username" />
 
     <Button
         android:id="@+id/btn_action"

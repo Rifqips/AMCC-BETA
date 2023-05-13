@@ -122,10 +122,8 @@ class RegisterFragment : Fragment() {
         parentFragmentManager.beginTransaction().apply {
             replace(R.id.container, LoginFragment(), LoginFragment::class.java.simpleName)
             /* shared element transition to main activity */
-            addSharedElement(binding.labelAuth, "auth")
             addSharedElement(binding.edEmail, "email")
             addSharedElement(binding.edPassword, "password")
-            addSharedElement(binding.edTelepon, "telepon")
             commit()
         }
     }
