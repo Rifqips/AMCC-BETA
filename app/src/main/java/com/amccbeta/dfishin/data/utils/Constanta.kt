@@ -1,14 +1,39 @@
 package com.amccbeta.dfishin.data.utils
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+
 object Constanta {
 
-    enum class UserPreferences {
-        UserUID, UserName, UserEmail, UserToken, UserLastLogin
-    }
-
     val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
-    const val preferenceName = "Settings"
-    const val preferenceDefaultValue = "Not Set"
-    const val preferenceDefaultDateValue = "2000/04/30 00:00:00"
-    const val TAG_AUTH = "TEST_AUTH"
+
+
+
+    const val APP_ID = "d6db25ca6801445f8b8222a5da9dfd62"
+    const val BASE_URL = "https://api.openweathermap.org/data/"
+    const val METRIC_UNIT = "metric"
+    const val PREFERENCE_NAME = "WeatherPreference"
+    const val WEATHER_RESPONSE_DATA = "weather_response_data"
+
+    fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+            return when {
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                else ->false
+            }
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnectedOrConnecting
+        }
+    }
 }

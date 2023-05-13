@@ -40,6 +40,7 @@ class DashboardActivity : AppCompatActivity() {
         binding.cvFirstType.setOnClickListener {
             startActivity(Intent(this, FishTypeActivity::class.java))
         }
+
     }
 
     private fun recyclerShown(){

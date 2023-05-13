@@ -25,5 +25,12 @@
     <string name="home">Home</string>
     <string name="notification">Notification</string>
     <string name="profile">Profile</string>
+    <string name="refresh">refresh</string>
+    <string name="loading">Loading</string>
+
+    <string name="image_contentDescription">image</string>
+    <string name="miles_per_hour">miles/hour</string>
+
+    <string name="action_refresh">Refresh</string>
 
 </resources>

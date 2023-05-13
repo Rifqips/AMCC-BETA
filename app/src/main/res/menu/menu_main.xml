@@ -7,6 +7,6 @@
         android:icon="@drawable/ic_refresh_24_dp"
         android:orderInCategory="100"
         app:showAsAction="always"
-        android:title="@string/action_refresh"
+        android:title="@string/refresh"
         />
 </menu>
