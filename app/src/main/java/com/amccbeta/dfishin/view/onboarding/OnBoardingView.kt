@@ -8,6 +8,12 @@ import android.widget.FrameLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.amccbeta.dfishin.MainActivity
 import com.amccbeta.dfishin.databinding.OnboardingViewBinding
+import com.amccbeta.dfishin.view.adapter.onboarding.OnBoardingPagerAdapter
+import com.amccbeta.dfishin.view.auth.AuthActivity
+import com.amccbeta.dfishin.view.onboarding.core.pageCompositePageTransformer
+import com.amccbeta.dfishin.view.onboarding.core.setParallaxTransformation
+import com.amccbeta.dfishin.view.onboarding.domain.OnBoardingPrefManager
+import com.amccbeta.dfishin.view.onboarding.entity.OnBoardingPage
 
 class OnBoardingView @JvmOverloads
 constructor(
@@ -71,7 +77,7 @@ constructor(
         nextBtn.setOnClickListener { navigateToNextSlide(slider) }
         skipBtn.setOnClickListener { navigateToLastSlide(slider) }
         startBtn.setOnClickListener{
-            context.startActivity(Intent(context, MainActivity::class.java))
+            context.startActivity(Intent(context, AuthActivity::class.java))
             onFinishInflate()
         }
 

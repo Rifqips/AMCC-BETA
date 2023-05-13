@@ -1,4 +1,4 @@
-package com.amccbeta.dfishin.view.entity
+package com.amccbeta.dfishin.view.onboarding.entity
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

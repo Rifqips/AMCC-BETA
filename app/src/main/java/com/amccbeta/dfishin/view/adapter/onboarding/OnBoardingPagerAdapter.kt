@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amccbeta.dfishin.databinding.OnboardingPageItemBinding
-import com.amccbeta.dfishin.view.entity.OnBoardingPage
+import com.amccbeta.dfishin.view.onboarding.entity.OnBoardingPage
 
 class OnBoardingPagerAdapter(private val onBoardingPageList: Array<OnBoardingPage> = OnBoardingPage.values()) :
     RecyclerView.Adapter<OnBoardingPagerAdapter.PagerViewHolder>() {
