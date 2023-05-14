@@ -41,6 +41,7 @@
 
     </LinearLayout>
 
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
         android:layout_width="wrap_content"
@@ -164,6 +165,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_password" />
 
+    <LinearLayout
+        android:id="@+id/containerMisc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_action">
+
         <TextView
             android:id="@+id/label_or"
             android:layout_width="wrap_content"
@@ -173,8 +183,6 @@
             android:textSize="16sp"
             android:layout_marginVertical="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_action"
             android:textColor="@color/third_color" />
 
         <TextView
@@ -188,6 +196,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_or"
             android:textStyle="bold" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/loading"

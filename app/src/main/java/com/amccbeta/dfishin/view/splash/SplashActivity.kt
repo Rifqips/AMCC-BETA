@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!).postDelayed({
             if (preferences.sharedPref.getString("username","") == "" && preferences.sharedPref.getString("password", "") == "") {
-                val intentLogin = Intent(this, AuthActivity::class.java)
+                val intentLogin = Intent(this, OnboardingActivity::class.java)
                 startActivity(intentLogin)
             } else {
                 val intent = Intent(this,DashboardActivity::class.java)

@@ -32,7 +32,7 @@ class ProfileActivity : AppCompatActivity() {
             .apply(RequestOptions.circleCropTransform())
             .into(binding.ivDetail)
 
-        binding.ivDetail.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
 
@@ -54,6 +54,9 @@ class ProfileActivity : AppCompatActivity() {
             val mEditor = preferences.sharedPref.edit()
             mEditor.remove("username").apply()
             mEditor.remove("email").apply()
+            mEditor.remove("telepon").apply()
+            mEditor.remove("password").apply()
+            mEditor.remove("url").apply()
             mEditor.clear()
             val intentLogin = Intent(this, AuthActivity::class.java)
             startActivity(intentLogin)

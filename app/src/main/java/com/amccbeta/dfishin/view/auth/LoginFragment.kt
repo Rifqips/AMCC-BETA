@@ -73,7 +73,7 @@ class LoginFragment : Fragment() {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.container, RegisterFragment(), RegisterFragment::class.java.simpleName)
                 /* shared element transition to main activity */
-                addSharedElement(binding.edUsername, "email")
+                addSharedElement(binding.edUsername, "username")
                 addSharedElement(binding.edPassword, "password")
                 commit()
             }
@@ -109,6 +109,8 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireActivity(), databaseError.message, Toast.LENGTH_LONG).show()
             }
         })
+
     }
+
 
 }
