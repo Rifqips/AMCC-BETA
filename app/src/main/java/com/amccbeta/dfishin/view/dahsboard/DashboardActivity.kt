@@ -13,6 +13,7 @@ import com.amccbeta.dfishin.view.buyfeed.BuyFeedActivity
 import com.amccbeta.dfishin.view.distribusi.DistribusiActivity
 import com.amccbeta.dfishin.view.fishtype.FishTypeActivity
 import com.amccbeta.dfishin.view.fishtype.fragment.FishTypeFragment
+import com.amccbeta.dfishin.view.profile.ProfileActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.DatabaseReference
@@ -49,6 +50,10 @@ class DashboardActivity : AppCompatActivity() {
 
         binding.cvBuyFeed.setOnClickListener {
             startActivity(Intent(this, BuyFeedActivity::class.java))
+        }
+
+        binding.ivUser.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
     }

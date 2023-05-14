@@ -10,14 +10,7 @@
     <item
         android:id="@+id/menuWheater"
         android:icon="@drawable/ic_wheater"
-        android:title="Wheater"/>
-
-
-    <item
-        android:id="@+id/navigation_blank"
-        android:enabled="false"
-        android:title=""
-        app:showAsAction="ifRoom" />
+        android:title="@string/wheater"/>
 
     <item
         android:id="@+id/menuNotification"
@@ -26,7 +19,7 @@
 
     <item
         android:id="@+id/menuPerson"
-        android:icon="@drawable/ic_person"
-        android:title="@string/profile"/>
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/setting"/>
 
 </menu>

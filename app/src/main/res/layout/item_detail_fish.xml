@@ -15,7 +15,8 @@
         android:layout_gravity="center"
         app:cardCornerRadius="30dp"
         android:backgroundTint="@color/card_color"
-        tools:layout_editor_absoluteX="31dp">
+        tools:layout_editor_absoluteX="31dp"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constDetailFish"

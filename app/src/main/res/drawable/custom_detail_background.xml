@@ -8,8 +8,8 @@
                 android:endColor="@color/primary_color"
                 android:type="linear" />
             <corners
-                android:topLeftRadius="20dp"
-                android:topRightRadius="20dp"/>
+                android:topLeftRadius="40dp"
+                android:topRightRadius="40dp"/>
         </shape>
     </item>
 </selector>
