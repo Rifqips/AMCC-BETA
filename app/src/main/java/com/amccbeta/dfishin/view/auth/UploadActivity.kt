@@ -115,7 +115,7 @@ class UploadActivity : AppCompatActivity(), PermissionListener {
                     progressDialog.setMessage("Upload "+progress.toInt()+" %")
                 }
 
-            saveUsername(sUsername, sPassword, sEmail, sUrl)
+            saveUsername(sUsername, sPassword, sEmail, sUrl, sTelepon)
 
         }
 
@@ -149,7 +149,7 @@ class UploadActivity : AppCompatActivity(), PermissionListener {
                 imageMultiPart = MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
             }
         }
-    private fun saveUsername(sUsername: String, sPassword: String,  sEmail: String, sUrl: String) {
+    private fun saveUsername(sUsername: String, sPassword: String,  sEmail: String, sUrl: String, sTelepon : String) {
         val user = User()
         user.username = sUsername
         user.password = sPassword
